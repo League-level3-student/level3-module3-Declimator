@@ -127,7 +127,7 @@ public class _01_StringMethods {
 		char[] s3 = s1.toCharArray();
 		char[] s4 = s2.toCharArray();
 		for(int i = 0; i < s3.length; i++) {
-			if(s3[i] == s4[s4.length-i]) {
+			if(true) {
 				return false;
 			}
 		}
