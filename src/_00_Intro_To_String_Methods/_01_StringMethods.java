@@ -1,5 +1,7 @@
 package _00_Intro_To_String_Methods;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Base64;
 
 /*
@@ -54,14 +56,37 @@ public class _01_StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
-
+		System.out.println("start");
+		int i = 0;
+		while(s1.charAt(i) == ' ') {
+			s1 = s1.substring(i+1);
+		}
+		i = 0;
+		while(s2.charAt(i) == ' ') {
+			s2 = s2.substring(i+1);
+		}
+		i = 0;
+		while(s3.charAt(i) == ' ') {
+			s3 = s3.substring(i+1);
+		}
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s3);
 		String s12 = s1.split(" ")[1];
 		String s22 = s2.split(" ")[1];
 		String s32 = s3.split(" ")[1];
-		if (s12.compareTo(s22) < 0 && s12.compareTo(s32) < 0)
+		System.out.println(s12);
+		System.out.println(s22);
+		System.out.println(s32);
+		if (s12.compareTo(s22) < 0 && s12.compareTo(s32) < 0) {
+			System.out.println(s1);
 			return s1;
-		if (s22.compareTo(s12) < 0 && s22.compareTo(s32) < 0)
+		}
+		if (s22.compareTo(s12) < 0 && s22.compareTo(s32) < 0) {
+			System.out.println(s2);
 			return s2;
+		}
+		System.out.println(s3);
 		return s3;
 	}
 
@@ -78,8 +103,13 @@ public class _01_StringMethods {
 
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
-		String[] slist = s.split(substring);
-		return slist.length - 1;
+		int n = 0;
+		int index = s.indexOf(substring);
+		while(index != -1) {
+			n++;
+			index = s.indexOf(substring, index + substring.length());
+		}
+		return n;
 	}
 
 	// Call Utilities.encrypt at the bottom of this file to encrypt String s
@@ -112,22 +142,33 @@ public class _01_StringMethods {
 	// occurrence of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-		return 0;
+		int i1 = s.indexOf(substring);
+		int i2 = s.lastIndexOf(substring);
+		return i2 - substring.length() - i1;
 	}
 
 	// Return true if String s is a palindrome
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
-		String s1 = s.substring(0, s.length()/2+1);
-		String s2 = s.substring(s.length()/2);
-		System.out.println(s);
-		System.out.println(s1);
-		System.out.println(s2);
+		for(int i = 0; i < s.length(); i++) {
+			if("!@#$%^&*()-_+=[]{}|/,.<>;:'?`~".contains(s.charAt(i) + "")) {
+				s = s.substring(0, i) + s.substring(i+1);
+			}
+		}
+		s = s.replace(" ", "");
+		String s1 = s.substring(0, (s.length() + 1) / 2);
+		String s2 = s.substring(s.length() / 2);
+		s1 = s1.toLowerCase();
+		s2 = s2.toLowerCase();
 		char[] s3 = s1.toCharArray();
 		char[] s4 = s2.toCharArray();
-		for(int i = 0; i < s3.length; i++) {
-			if(true) {
+		int c = 1;
+		for (int i = 0; i < s3.length; i++) {
+			if (s4[s4.length - c] == ' ') {
+				c++;
+				i--;
+			} else if (s3[i] != s4[s4.length - i - c]) {
 				return false;
 			}
 		}
