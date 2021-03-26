@@ -23,9 +23,8 @@ class _01_StringMethodsTest {
     @Test 
     void testLineLeader() {
         assertEquals("John A", _01_StringMethods.lineLeader("John C", "John B", "John A"));
-        assertEquals("Charley F", _01_StringMethods.lineLeader("  Allison Z", " Charley F ", " Brad H "));
         assertEquals("John A", _01_StringMethods.lineLeader("           John A  ", " John C   ", "     John B "));
-
+        assertEquals("Charley F", _01_StringMethods.lineLeader("  Allison Z", " Charley F ", " Brad H "));
     }
 
     @Test

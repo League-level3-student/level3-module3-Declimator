@@ -72,6 +72,9 @@ public class _01_StringMethods {
 		System.out.println(s1);
 		System.out.println(s2);
 		System.out.println(s3);
+		String s11 = s1.split(" ")[0];
+		String s21 = s2.split(" ")[0];
+		String s31 = s3.split(" ")[0];
 		String s12 = s1.split(" ")[1];
 		String s22 = s2.split(" ")[1];
 		String s32 = s3.split(" ")[1];
@@ -80,14 +83,14 @@ public class _01_StringMethods {
 		System.out.println(s32);
 		if (s12.compareTo(s22) < 0 && s12.compareTo(s32) < 0) {
 			System.out.println(s1);
-			return s1;
+			return s11 + " " + s12;
 		}
 		if (s22.compareTo(s12) < 0 && s22.compareTo(s32) < 0) {
 			System.out.println(s2);
-			return s2;
+			return s21 + " " + s22;
 		}
 		System.out.println(s3);
-		return s3;
+		return s31 + " " + s32;
 	}
 
 	// Return the sum of all numerical digits in the String
