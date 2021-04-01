@@ -56,7 +56,6 @@ public class _01_StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
-		System.out.println("start");
 		int i = 0;
 		while(s1.charAt(i) == ' ') {
 			s1 = s1.substring(i+1);
@@ -69,27 +68,18 @@ public class _01_StringMethods {
 		while(s3.charAt(i) == ' ') {
 			s3 = s3.substring(i+1);
 		}
-		System.out.println(s1);
-		System.out.println(s2);
-		System.out.println(s3);
 		String s11 = s1.split(" ")[0];
 		String s21 = s2.split(" ")[0];
 		String s31 = s3.split(" ")[0];
 		String s12 = s1.split(" ")[1];
 		String s22 = s2.split(" ")[1];
 		String s32 = s3.split(" ")[1];
-		System.out.println(s12);
-		System.out.println(s22);
-		System.out.println(s32);
 		if (s12.compareTo(s22) < 0 && s12.compareTo(s32) < 0) {
-			System.out.println(s1);
 			return s11 + " " + s12;
 		}
 		if (s22.compareTo(s12) < 0 && s22.compareTo(s32) < 0) {
-			System.out.println(s2);
 			return s21 + " " + s22;
 		}
-		System.out.println(s3);
 		return s31 + " " + s32;
 	}
 
